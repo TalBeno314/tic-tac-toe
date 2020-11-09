@@ -57,10 +57,10 @@ function mouseClicked() {
             //addin the X to the board
             board[i][j] = 'X';
             turn++;
-        }
 
-        //calling the function to AI's turn.
-        ai();
+            //calling the ai function
+            ai();
+        }
     }
 }
 
