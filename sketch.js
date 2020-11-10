@@ -113,7 +113,7 @@ function gameOver(board, isReal) {
 }
 
 function ai() {
-    if (!gameOver(board, false)[0]) {
+    if (!gameOver(board, false)[0] && turn < 9) {
         //calling the minimax function
         //minimax returns an array, [score of move, [move]]
         let move = minimax(board, 8 - turn, true)[1];
