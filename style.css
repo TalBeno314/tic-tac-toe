@@ -5,8 +5,14 @@ body {
 }
 
 canvas {
+    display: block;
     position: absolute;
     top: 0px;
     left: 0px;
     display: block;
+}
+
+.button {
+    position: relative;
+    font-size: larger;
 }

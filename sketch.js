@@ -4,6 +4,11 @@ let offset;
 function setup() {
     let size = Math.min(windowWidth, windowHeight);
     createCanvas(size, size);
+    let button = createButton('reset');
+    button.position(size * 0.4, size + size * 0.07);
+    button.size(size * 0.2, size * 0.1);
+    button.style('font-size: ' + size * 0.07 + 'px;');
+    button.mousePressed(reset);
     cell = width / 3;
     offset = width / 20;
 }
@@ -194,4 +199,14 @@ function clone(board) {
     }
 
     return newArray;
+}
+
+function reset() {
+    board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ];
+
+    turn = 0;
 }
