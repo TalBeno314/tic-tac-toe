@@ -3,6 +3,10 @@ let offset;
 
 function setup() {
     let size = Math.min(windowWidth, windowHeight);
+    let isSize = (size == windowHeight);
+    size = isSize ? (size * 0.7) : (size);
+    let h1 = createElement('h1', "tic-tac-toe");
+    h1.style("margin-top: -1%; color: white; font-size: " + ((isSize) ? (600) : (1000)) + "%; text-align: center; font-family: Arial, Helvetica, sans-serif;")
     let canvas = createCanvas(size, size);
     canvas.position(windowWidth / 2 - size / 2, size / 5);
     let button = createButton('reset');
