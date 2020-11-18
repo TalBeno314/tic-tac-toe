@@ -1,6 +1,17 @@
 let cell;
 let offset;
 
+let turn = 0;
+
+let start = "";
+
+//creating an empty board
+let board = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+];
+
 function setup() {
     let size = Math.min(windowWidth, windowHeight);
     let isSize = (size == windowHeight);
@@ -16,16 +27,17 @@ function setup() {
     button.mousePressed(reset);
     cell = width / 3;
     offset = width / 20;
+    let decideX = createButton('Player First');
+    decideX.position(size * 0.4 + windowWidth / 2 - size / 4 - size * 0.03, size + size * 0.07 + size / 5);
+    decideX.size(size * 0.4, size * 0.1);
+    decideX.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
+    decideX.mousePressed(X);
+    let decideO = createButton('AI First');
+    decideO.position(size * 0.4 + windowWidth / 2 - size * 0.57 - size * 0.35, size + size * 0.07 + size / 5);
+    decideO.size(size * 0.4, size * 0.1);
+    decideO.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
+    decideO.mousePressed(O);
 }
-
-let turn = 0;
-
-//creating an empty board
-let board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-];
 
 function draw() {
     background(0);
@@ -63,14 +75,28 @@ function mouseClicked() {
     //calculating click position on board
     let j = floor(mouseY / cell);
     let i = floor(mouseX / cell);
-    if ((turn % 2 == 0) && !gameOver(board)[0]) {
-        if (board[i][j] == '') {
-            //addin the X to the board
-            board[i][j] = 'X';
-            turn++;
 
-            //calling the ai function
-            ai();
+    if (start) {
+        if ((turn % 2 == 0) && !gameOver(board)[0]) {
+            if (board[i][j] == '') {
+                //addin the X to the board
+                board[i][j] = 'X';
+                turn++;
+
+                //calling the ai function
+                ai();
+            }
+        }
+    } else {
+        if ((turn % 2 == 1) && !gameOver(board)[0]) {
+            if (board[i][j] == '') {
+                //addin the X to the board
+                board[i][j] = 'X';
+                turn++;
+
+                //calling the ai function
+                ai();
+            }
         }
     }
 }
@@ -215,4 +241,18 @@ function reset() {
     ];
 
     turn = 0;
+
+    if (!start) {
+        ai();
+    }
+}
+
+function X() {
+    start = true;
+    reset();
+}
+
+function O() {
+    start = false;
+    reset();
 }
