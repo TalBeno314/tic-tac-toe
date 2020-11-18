@@ -21,20 +21,20 @@ function setup() {
     let canvas = createCanvas(size, size);
     canvas.position(windowWidth / 2 - size / 2, size / 5);
     let button = createButton('reset');
-    button.position(size * 0.4 + windowWidth / 2 - size / 2, size + size * 0.07 + size / 5);
+    button.position(windowWidth / 2 - size * 0.1, size * 1.27);
     button.size(size * 0.2, size * 0.1);
     button.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     button.mousePressed(reset);
     cell = width / 3;
     offset = width / 20;
     let decideX = createButton('Player First');
-    decideX.position(size * 0.4 + windowWidth / 2 - size / 4 - size * 0.03, size + size * 0.07 + size / 5);
-    decideX.size(size * 0.4, size * 0.1);
+    decideX.position(windowWidth / 2 + size * 0.115, size * 1.27);
+    decideX.size(size * 0.38, size * 0.1);
     decideX.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     decideX.mousePressed(X);
     let decideO = createButton('AI First');
-    decideO.position(size * 0.4 + windowWidth / 2 - size * 0.57 - size * 0.35, size + size * 0.07 + size / 5);
-    decideO.size(size * 0.4, size * 0.1);
+    decideO.position(windowWidth / 2 - size * 0.495, size * 1.27);
+    decideO.size(size * 0.38, size * 0.1);
     decideO.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     decideO.mousePressed(O);
 }
@@ -244,6 +244,8 @@ function reset() {
 
     if (!start) {
         ai();
+    } else {
+
     }
 }
 
