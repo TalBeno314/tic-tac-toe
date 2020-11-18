@@ -23,19 +23,19 @@ function setup() {
     let button = createButton('reset');
     button.position(windowWidth / 2 - size * 0.1, size * 1.27);
     button.size(size * 0.2, size * 0.1);
-    button.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
+    button.style('font-size: ' + size * 0.066 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     button.mousePressed(reset);
     cell = width / 3;
     offset = width / 20;
     let decideX = createButton('Player First');
     decideX.position(windowWidth / 2 + size * 0.115, size * 1.27);
     decideX.size(size * 0.38, size * 0.1);
-    decideX.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
+    decideX.style('font-size: ' + size * 0.066 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     decideX.mousePressed(X);
     let decideO = createButton('AI First');
     decideO.position(windowWidth / 2 - size * 0.495, size * 1.27);
     decideO.size(size * 0.38, size * 0.1);
-    decideO.style('font-size: ' + size * 0.07 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
+    decideO.style('font-size: ' + size * 0.066 + 'px; color: white; border-color: white; background-color: black; border-width: 5px');
     decideO.mousePressed(O);
 }
 
