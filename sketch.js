@@ -3,7 +3,7 @@ let offset;
 
 let turn = 0;
 
-let start = "";
+let start = true;
 
 //creating an empty board
 let board = [
@@ -151,12 +151,31 @@ function gameOver(board, isReal) {
 
 function ai() {
     if (!gameOver(board, false)[0] && turn < 9) {
-        //calling the minimax function
-        //minimax returns an array, [score of move, [move]]
-        let move = minimax(board, 8 - turn, true)[1];
+        let coords;
 
-        //addin O to the board, using the move given by minimax
-        board[move[0]][move[1]] = 'O';
+        if (turn == 0) {
+            let move = Math.floor(Math.random() * 4);
+            switch (move) {
+                case 0:
+                    coords = [0, 0];
+                    break;
+                case 1:
+                    coords = [2, 2];
+                    break;
+                case 2:
+                    coords = [2, 0];
+                    break;
+                case 3:
+                    coords = [0, 2];
+                    break;
+            }
+        } else {
+            //calling the minimax function
+            //minimax returns an array, [score of move, [move]]
+            coords = minimax(board, 8 - turn, true)[1];
+        }
+
+        board[coords[0]][coords[1]] = 'O';
         turn++;
     }
 }
@@ -242,7 +261,7 @@ function reset() {
 
     turn = 0;
 
-    if (!start) {
+    if (!start === true) {
         ai();
     } else {
 
